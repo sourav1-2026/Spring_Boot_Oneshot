@@ -14,11 +14,10 @@ public class DemoController {
 
     private Coach myCoach;
 
-    // define constructor for dependency injection
 
+    // the setter function for setter injection
     @Autowired
-    public  DemoController(Coach theCoach){
-
+    public  void setCoach(Coach theCoach){
         myCoach=theCoach;
     }
 
