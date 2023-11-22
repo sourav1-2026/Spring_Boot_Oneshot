@@ -23,8 +23,29 @@ public class CurddemoApplication
 		return  runner -> {
 			//createStudent(studentDAO);
 
-			CreateMultipleStudent(studentDAO);
+//			CreateMultipleStudent(studentDAO);
+
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+
+		// create a student object
+		System.out.println("creating new student object...");
+		student tempStudent1=new student("akash","shaw","akash@123gmail.com");
+
+		// save the student
+		System.out.println("saved student");
+		studentDAO.save(tempStudent1);
+		// display id of the saved student
+		int theid=tempStudent1.getId();
+		System.out.println("saved student id"+ theid);
+		// retriev student based on the id
+		System.out.println("retriing student with id :" + theid);
+		student mystudent=studentDAO.findById(theid);
+		// display student
+		System.out.println(mystudent);
 	}
 
 	private void CreateMultipleStudent(StudentDAO studentDAO) {
